@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <h1>Random kuvia imgurista</h1>
+    <h2 id="fail"></h2>
+    <div class="randomimage">
+        <input type="button" onclick="generateAll();" value="Generate Images" />
+        <select name="stringlength" id="stringlength">
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+    </div>
+
+    <div class="image-container">
+        <div class="image-box"></div>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="enlarged-image"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>
+
