@@ -2,14 +2,15 @@ const imageBox = document.querySelector('.image-box');
 const overlay = document.querySelector('.overlay');
 const enlargedImage = document.querySelector('.enlarged-image');
 const fail=document.getElementById("fail");
-let failAmount=0;
-
 const cardLimit = 99;
 const cardIncrease = 9;
 const pageCount = Math.ceil(cardLimit / cardIncrease);
+let failAmount=0;
 let currentPage = 1;
-
+let errorCounter = 0;
 let currentIndex = 0;
+let checkCount = 0;
+let lastChecked = 0;
 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'ArrowLeft') {
@@ -71,8 +72,15 @@ function generateImages() {
     
     //check if the image is a 404, if it is, generate a new one
     image.addEventListener('error', function() {
+      errorCounter++;
+      if (errorCounter >= 100) {
+        fail.innerHTML="You have been rate limited";
+        return;
+      }
       failAmount++;
+      setTimeout(function() {
         generateImages();
+      }, 1000);
         fail.innerHTML="Failed to load "+failAmount+" images";
     });
 
@@ -81,11 +89,17 @@ function generateImages() {
         imageBox.appendChild(image);
         fail.innerHTML="";
         failAmount=0;
+        errorCounter = 0;
       } else {
+        if(stringlength>5){
+        setTimeout(function() {
         generateImages();
+      }, 1000);
+    }else{
+      generateImages();
+    }
         failAmount++;
         fail.innerHTML="Failed to load "+failAmount+" images";
-
       }
     };
 }
