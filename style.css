@@ -4,6 +4,10 @@ body {
   background: #1d1f20;
   text-align: center;
 }
+label{
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+}
 h1 {
   color: white;
   font-family: 'Source Sans Pro', sans-serif;
@@ -13,16 +17,31 @@ h1 {
   position: absolute;
   text-align: center;
 }
-h2{
+.infobox {
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  display:flex;
+  gap: 20px;
+  position: absolute;
+  left: 50%;
+  top:100px;
+  transform: translate(-50%, -50%);
+}
+#fail, #time {
   font-family: 'Source Sans Pro', sans-serif;
   color:white;
+  width: 250px; 
+  text-align: center;
+}
+.randomimage {
   position: absolute;
-  top: 55px;
   left: 50%;
+  top: 100px;
   transform: translateX(-50%);
 }
 .randomimage input[type="button"] {
   color: white;
+  display: block;
   background-color: transparent;
   border: 3px solid white;
   font-family: 'Source Sans Pro', sans-serif;
@@ -45,7 +64,7 @@ h2{
   border-radius: 10px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
   padding: 10px;
-  margin-top: 150px;
+  top: 190px;
 }
 .thumbnail {
   width: 100px;

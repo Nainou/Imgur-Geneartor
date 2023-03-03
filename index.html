@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
+
 <body>
+    <script src="https://unpkg.com/@tensorflow/tfjs@2.6.0" type="text/javascript"></script>
+    <script src="https://unpkg.com/nsfwjs@2.3.0" type="text/javascript"></script>
     <h1>Random kuvia imgurista</h1>
-    <h2 id="fail"></h2>
+    <div class="infobox">
+        <h2 id="fail">fail</h2>
+        <h2 id="time">time</h2>
+    </div>
+
     <div class="randomimage">
         <input type="button" onclick="generateAll();" value="Generate Images" />
         <select name="stringlength" id="stringlength">
             <option value="5">5</option>
             <option value="6">6</option>
             <option value="7">7</option>
+            <input type="checkbox" id="nsfw" name="nsfw" value="nsfw"checked>
+            <label for="nsfw">NSFW filter</label>
         </select>
     </div>
 
@@ -25,5 +35,5 @@
 
     <script src="main.js"></script>
 </body>
-</html>
 
+</html>
