@@ -9,21 +9,34 @@
 <body>
     <script src="https://unpkg.com/@tensorflow/tfjs@2.6.0" type="text/javascript"></script>
     <script src="https://unpkg.com/nsfwjs@2.3.0" type="text/javascript"></script>
+    <script src="https://unpkg.com/browse/p-limit@4.0.0/" type="text/javascript"></script>
     <h1>Random kuvia imgurista</h1>
     <div class="infobox">
+        <h2 id="loaded">loaded</h2>
         <h2 id="fail">fail</h2>
-        <h2 id="time">time</h2>
+        <h2 id="loadtime">loadtime</h2>
+        <h2 id="processing_time">processing time</h2>
     </div>
 
     <div class="randomimage">
-        <input type="button" onclick="generateAll();" value="Generate Images" />
-        <select name="stringlength" id="stringlength">
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <input type="checkbox" id="nsfw" name="nsfw" value="nsfw"checked>
+        <input id="loadbutton" type="button" onclick="initialLoad();" value="Load Model" />
+        <input id="generatebutton" type="button" onclick="generateAll();" value="Generate Images" />
+        <input id="nsfwbutton" type="button" onclick="generateNSFW();" value="Generate NSFW" disabled />
+        <div class="options">
+            <input type="number" id="amount" name="amount" value="100">
+            <label for="amount">image amount</label>
+            <select name="stringlength" id="stringlength">
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select>
+            <label for="stringlength">string length</label>
+            <input type="checkbox" id="nsfw" name="nsfw" value="nsfw">
             <label for="nsfw">NSFW filter</label>
-        </select>
+            <input type="number" id="pLimit" name="pLimit" value="10">
+            <label for="amount">process limit</label>
+        </div>
+
     </div>
 
     <div class="image-container">
